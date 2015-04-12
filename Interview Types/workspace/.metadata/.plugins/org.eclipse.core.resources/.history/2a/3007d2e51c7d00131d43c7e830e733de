@@ -1,0 +1,22 @@
+package recursion;
+
+public class CombinationOfString {
+	
+	
+	public static void combine(String prefix, String word){
+		if( !prefix.isEmpty() )
+			System.out.println(prefix);
+
+		for(int i=0; i<word.length(); i++){
+			String tempWord = word;
+			combine(prefix+word.charAt(i), tempWord.replaceAll("\\s", ""));
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			combine("","aba");
+			System.out.println("aba".replaceAll("a",""));
+	}
+
+}

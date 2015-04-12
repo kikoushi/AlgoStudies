@@ -1,0 +1,11 @@
+'''
+Created on 31 Oca 2014
+
+@author: cm
+'''
+
+
+def combination_of_strings(prefix, word):
+    
+    for i in range(len(word)):
+        combination_of_strings(prefix + word[i]], word[0:i] + word[])

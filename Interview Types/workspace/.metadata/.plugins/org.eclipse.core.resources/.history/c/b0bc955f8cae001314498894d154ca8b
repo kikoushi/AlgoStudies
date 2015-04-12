@@ -1,0 +1,24 @@
+package lab03;
+
+public class ShapeTester {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		ShapeContainer sc = new ShapeContainer();
+		
+		
+		Shape s;
+		
+		
+		
+		for(int i=1; i<=5; i++){
+			s = new Circle(i);
+		}
+		
+	}
+
+}

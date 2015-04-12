@@ -1,0 +1,42 @@
+-- VERSION_4
+-- START DISKCACHE
+C:\Users\cm\Dropbox\private\Study\Programming Documents\Interview Types\workspace\.metadata\.plugins\org.eclipse.core.resources\.projects\InterviewStudiesPython\com.python.pydev.analysis\v2_indexcache
+oop.Main|1391198083635|C:\Users\cm\Dropbox\private\Study\Programming Documents\Interview Types\workspace\InterviewStudiesPython\src\oop\Main.py
+string.PermComb|1391195112917|C:\Users\cm\Dropbox\private\Study\Programming Documents\Interview Types\workspace\InterviewStudiesPython\src\string\PermComb.py
+string.__init__|1391191603392|C:\Users\cm\Dropbox\private\Study\Programming Documents\Interview Types\workspace\InterviewStudiesPython\src\string\__init__.py
+oop.Patient|1391197958144|C:\Users\cm\Dropbox\private\Study\Programming Documents\Interview Types\workspace\InterviewStudiesPython\src\oop\Patient.py
+oop.__init__|1391196496395|C:\Users\cm\Dropbox\private\Study\Programming Documents\Interview Types\workspace\InterviewStudiesPython\src\oop\__init__.py
+-- END DISKCACHE
+-- START DICTIONARY
+9
+8=Main
+4=PermComb
+1=oop.Main
+7=Patient.__init__
+3=string.PermComb
+5=Patient
+6=PermComb.__init__
+9=Patient.setPriority
+2=oop.Patient
+-- END DICTIONARY
+-- START TREE 1
+4
+mai|1|Main!9@
+pat|1|Patient!17@
+pc|1|pc!27@
+per|1|PermComb!25@
+-- END TREE
+-- START TREE 2
+11
+__i|2|__init__!4&26@__init__!5&18@
+__r|1|__repr__!5&18@
+com|1|comb!4&26@
+dat|1|data!6&27@
+get|3|getidn!5&18@getpriority!5&18@getName!5&18@
+idn|1|idn!7&19@
+lst|1|lst!8&11@
+nam|1|name!7&19@
+per|1|perm!4&26@
+pri|2|priority!9&19@priority!7&19@
+set|1|setPriority!5&18@
+-- END TREE

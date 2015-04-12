@@ -1,0 +1,24 @@
+package recursion;
+
+import java.util.*;
+
+public class Telephone {
+	
+	private static char[] alphabet = "abcdefghijklmnoprstuvwxy".toCharArray();
+	private static Map<Integer, String[]> telMap = new HashMap<Integer, String[]>();
+	
+	public static void createTelMap(){
+		for (int i=2; i<10; i++){
+			char[] vals = new char[3];
+			for(int j=0; j<3; j++){
+				vals[j]
+				telMap.put(i,alphabet[j]);
+			}
+		}
+	}
+	
+	public static char getCharKey(int telKey, int place){
+		
+	}
+
+}

@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+
+/**
+ * @author defne
+ *
+ */
+public interface Selectable {
+
+	public 	abstract boolean getSelected();
+	public  abstract void setSelected(boolean selected);
+	public  abstract Shape contains(int x, int y);
+	    
+}

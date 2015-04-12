@@ -1,0 +1,12 @@
+package sortAlgos;
+
+public class MergeSort {
+
+	public static <T extends Comparable<T>> void sort(T[] arr){
+		T[] aux = arr.clone();
+		
+	}
+	
+	public static <T extends Comparable<T>> void sort(T[] arr, T[] aux, int l, int h){
+	
+}

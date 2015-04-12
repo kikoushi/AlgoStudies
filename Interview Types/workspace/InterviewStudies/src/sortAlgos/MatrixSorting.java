@@ -1,0 +1,74 @@
+package sortAlgos;
+
+/**
+ * My own algorithm for sorting the partially sorted matrix w/ memory bottleneck.
+ * @author cm
+ *
+ */
+public class MatrixSorting {
+
+	/**
+	 *	n*m each row is sorted, return the matrix as only one sorted array.    
+	 * @author cm
+	 *
+	 */
+	public static int[] createSortedArrayfromsortedMatrix(int[][] matrix){
+		
+		int m = matrix.length;
+		int n = matrix[0].length;
+		
+		int[] arr = new int[m * n]; // This will be the final sorted array.
+		int[] buffer = new int[m];  // This is what memory lets at a time.
+		int[] pntr = new int[m];	   // Current column pointers for each row on the matrix.  
+												   // e.g. {1,2,0}; matrix values which are on the memory now; (0,1),(1,2),(2,0)
+		
+//		initialization.
+		for(int i=0; i<m; i++){
+			buffer[i] = matrix[i][0];
+			pntr[i]++;
+		}
+		
+//		Fill up buffer than send minimum to the array, flush that from memory, get new one on the same row.
+		for(int j=0; j<m * n ; j++){
+			int minIdx = findMinIdx(buffer);
+			arr[j] = buffer[minIdx];
+			if(pntr[minIdx] >= n)
+				buffer[minIdx] = (int) Double.POSITIVE_INFINITY; // THIS INFINITY IS NOT GOOD AT ALL!
+			else{
+				buffer[minIdx] = matrix[minIdx][pntr[minIdx]];
+				pntr[minIdx]++;
+			}
+		}
+		
+		return arr;
+	}
+	
+	/**
+	 * Find the index that has the minimum value. 
+	 * @param arr
+	 * @return
+	 */
+	private static int findMinIdx(int[] arr){
+		int idx = 0;
+		for(int i=1; i<arr.length; i++)
+			if(arr[i] < arr[idx])
+				idx = i;
+		return idx;
+	}
+	
+	
+	/**
+	 * Some testing of the algorithm
+	 * @param args
+	 */
+	public static void main(String[] args){
+		
+		int[][] sortedMatrix = new int[][]{{1,1,2,3,4},
+										   {4,7,8,12,88},
+										   {3,21,22,33,44}};
+		
+		int[] sortedArr = createSortedArrayfromsortedMatrix(sortedMatrix);
+		for(int v : sortedArr)
+			System.out.print(v + " ");
+	}
+}

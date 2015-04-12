@@ -1,0 +1,15 @@
+package sortAlgos;
+
+public class bla {
+
+	private static void blaa(int a){
+		a = 1;
+	}
+	
+	
+	public static void main(String[] args){
+		int b = 5;
+		blaa(b);
+		System.out.println(b);
+	}
+}

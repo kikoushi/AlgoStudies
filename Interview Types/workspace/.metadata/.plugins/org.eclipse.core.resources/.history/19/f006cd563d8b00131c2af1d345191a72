@@ -1,0 +1,30 @@
+package sortAlgos;
+
+public class SelectionSort {
+	
+	public static <T> Comparable<T>[] sort(Comparable<T>[] arr){
+		for(int i=0; i<arr.length; i++){
+			int minIdx = i;		
+			for(int j=i+1; j<arr.length; j++)
+				minIdx = less(arr[i], arr[minIdx]) ? i : minIdx;
+			arr = exch(i, minIdx, arr);
+		}
+		return arr;
+	}
+	
+	private static boolean less(Comparable a, Comparable b){
+		return a.compareTo(b) == -1;
+	}
+	
+	private static void exch(int a, int b, Comparable[] arr){
+		Comparable v = arr[a];
+		arr[a] = arr[b];
+		arr[b] = v;
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

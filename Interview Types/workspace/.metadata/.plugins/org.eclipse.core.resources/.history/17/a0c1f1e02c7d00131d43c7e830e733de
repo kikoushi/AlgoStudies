@@ -1,0 +1,14 @@
+package recursion;
+
+import java.util.HashMap;
+
+public class Telephone {
+	
+	
+	private HashMap telMap = new HashMap();
+	
+	public static char getCharKey(int telKey, int place){
+		
+	}
+
+}

@@ -1,0 +1,47 @@
+package recursion;
+
+import java.util.*;
+
+public class Telephone {
+	
+	private static char[] alphabet = "abcdefghijklmnoprstuvwxy".toCharArray();
+	private static Map<Integer, char[]> telMap = new HashMap<Integer, char[]>();
+	
+	private static void createTelMap(){
+		int i=0;
+		int j=2;
+		while(j<10){
+			char[] vals = {alphabet[i],alphabet[i+1],alphabet[i+2]};
+			telMap.put(j,vals);
+			i=i+3;
+			j++;
+		}
+	}
+	
+	private static String printTelMap(){
+		StringBuffer sb = new StringBuffer();
+		for(int i : telMap.keySet()){
+			sb.append(i + "-{"); 
+			for(char c : telMap.get(i)){
+				sb.append(c + ",");
+			}
+			sb.deleteCharAt(sb.lastIndexOf(","));
+			sb.append("}\n");
+		}
+		return sb.toString();
+	}
+	
+	
+	public static char getCharKey(int telKey, int place){
+		createTelMap();
+		return telMap.get(telKey)[place-1];
+	}
+	
+
+	
+	public static void main(String[] args){
+		createTelMap();
+		System.out.println(printTelMap());
+	}
+
+}

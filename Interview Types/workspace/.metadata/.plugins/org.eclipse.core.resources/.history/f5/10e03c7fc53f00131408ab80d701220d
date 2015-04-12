@@ -1,0 +1,13 @@
+package dataStructures;
+
+import java.util.LinkedList;
+
+public class MyTree<K> {
+
+	private class TreeNode<K>{
+		
+		private int n;
+		private LinkedList<Node<K>> children;  
+	}
+	
+}

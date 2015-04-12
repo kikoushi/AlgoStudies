@@ -1,0 +1,26 @@
+'''
+Created on 31 Oca 2014
+
+@author: cm
+'''
+
+def perm(prefix, word):
+    if not word:
+        print(prefix)
+    
+    for i in range(len(word)):
+        perm(prefix + word[i] , word[:i] + word[i+1:])
+
+
+
+
+def comb(prefix, word):
+    if prefix:
+        print(prefix)
+    
+    for i in range(len(word)):
+        comb(prefix + word[i], word[i+1:])
+        
+        
+perm('', 'word')
+comb('', 'word')

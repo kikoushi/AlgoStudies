@@ -1,0 +1,34 @@
+package dataStructures;
+
+public class Node<K> {
+	
+	private K data;
+	private Node<K> next;
+	
+	public Node(){
+		this.data = null;
+		this.next = null;
+	}
+	
+	public Node(K data){
+		this.data = data;
+		this.next = null;
+	}
+	
+	public void setNext(Node<K> n){
+		this.next = n;
+	}
+	
+	public Node<K> getNext(){
+		return this==null ? null : this.next;
+	}
+	
+	public void setData(K data){
+		this.data = data;
+	}
+	
+	public K getData(){
+		return this==null ? null : this.data;
+	}
+
+}

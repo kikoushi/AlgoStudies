@@ -1,0 +1,12 @@
+package lab03;
+
+import java.util.ArrayList;
+
+public class ShapeContainer {
+
+	ArrayList<Shape> shapeList = new ArrayList<Shape>();
+	
+	void addShape(Shape s){
+		
+	}
+}

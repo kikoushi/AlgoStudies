@@ -1,0 +1,93 @@
+package dataStructures;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class MyQueue<K> implements Iterable<K>{
+	
+	private Node<K> first;
+	private Node<K> last;
+	private int size;
+	
+	public MyQueue(){
+		this.first = null;
+		this.last = null;
+		this.size = 0;
+	}
+	
+//	public MyQueue(K k){
+//		Node<K> n = new Node<K>(k);
+//		this.head = n;
+//		this.tail = n;
+//		this.head.setNext(this.tail);
+//		this.size = 0;
+//	}
+	
+	public boolean isEmpty(){
+		return this.first == null;
+	}
+	
+	public int size(){
+		return this.size;
+	}
+	
+	public void enqueue(K k){
+		Node<K> newLast = new Node<K>(k);
+		if(isEmpty()){
+			this.first = this.last;
+		}	
+		this.last.setNext(newLast);
+		this.last = newLast;
+		size++;
+	}
+	
+	public K peek() throws Exception{
+		if(isEmpty())
+			throw new Exception("Queue is Empty.");
+		
+		return this.first.getData();
+	}
+	
+	public K dequeue(){
+		if(isEmpty()) throw new NoSuchElementException("Queue underflow");
+		Node<K> n = this.first;
+		this.first = this.first.getNext();
+		this.first.setNext(null);
+		size--;
+		return n.getData();
+	}
+	
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		Node<K> n = this.first;
+		while(n.getNext() != null)
+			sb.append(n.getData() + ":");
+		return sb.toString();
+	}
+	
+	private class ListIterator<K> implements Iterator<K>{
+		
+	}
+	
+//	public Node getHead() {
+//		return head;
+//	}
+//	public void setHead(Node head) {
+//		this.head = head;
+//	}
+//	public Node getTail() {
+//		return tail;
+//	}
+//	public void setTail(Node tail) {
+//		this.tail = tail;
+//	}
+//	public int getSize() {
+//		return size;
+//	}
+//	public void setSize(int size) {
+//		this.size = size;
+//	}
+	
+	
+
+}

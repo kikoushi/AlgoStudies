@@ -1,0 +1,37 @@
+package recursion;
+
+public class CombinationOfString {
+	
+	
+	public static String[] takeCombination(String word){
+		String[] allCombs = new String[100];
+		combine("", word, allCombs, 0);
+		return allCombs;
+	}
+	public static void combine(String prefix, String word, String[] arr, int level){
+		if( !prefix.isEmpty() )
+			arr[level] = prefix;
+
+		for(int i=0; i<word.length(); i++){
+			combine(prefix+word.charAt(i), word.substring(i+1), arr, level+i);
+		}
+	}
+	
+	public static void combine(String prefix, String word){
+		if( !prefix.isEmpty() )
+			System.out.println(prefix);
+
+		for(int i=0; i<word.length(); i++){
+			combine(prefix+word.charAt(i), word.substring(i+1));
+		}
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+//		combine("","1234");
+		String[] coms = takeCombination("caner");
+		for(String c: coms)
+			System.out.println(c);
+	}
+
+}

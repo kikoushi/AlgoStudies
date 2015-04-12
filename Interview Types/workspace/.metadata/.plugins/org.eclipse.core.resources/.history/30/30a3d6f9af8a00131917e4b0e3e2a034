@@ -1,0 +1,10 @@
+'''
+Created on 31 Oca 2014
+
+@author: cm
+'''
+class Main:
+import Patient
+
+patient = Patient("ca","4",1)
+patient

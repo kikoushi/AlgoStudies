@@ -1,0 +1,108 @@
+package trees;
+
+public class BinarySearchTree {
+	
+	private Node root;
+	private int height; 
+	
+	private static final class Node{
+		private Node leftChild;
+		private Node rightChild;
+		private int value;
+		
+		private Node(int _value){
+			this.leftChild = null;
+			this.rightChild = null;
+			this.value = _value;
+		}
+	}
+	
+	public BinarySearchTree(int _value){
+		this.root = new Node(_value);
+		this.height = 0;	
+	}
+	
+	public void add(Node node, int _value){		
+		if(node == null)
+			node = new Node(_value);
+		if(_value < node.value)
+			add(node.leftChild, _value);
+		else
+			add(node.rightChild, _value);
+	}
+	
+	
+	public void inOrderTraversal(Node node){
+		if(node == null)
+			return;
+		
+		inOrderTraversal(node.leftChild);
+		System.out.println(node.value);
+		inOrderTraversal(node.rightChild);
+	}
+	
+	public boolean delete(Node root, int _value){
+		Node node_d = find(root, _value);
+		if(node_d == null)
+			return false;
+		return doDelete(node_d, _value);	
+	}
+	
+	public boolean doDelete(Node node, int _value){	
+		
+		if(node.leftChild == null && node.rightChild == null)
+			node = null;
+		if(node.leftChild != null){
+			Node sub = getRightMostChild(node.leftChild);
+			node.value = sub.value;
+			doDelete(node, sub.value);
+		}
+		else{
+			Node sub = getLeftMostChild(node.rightChild);
+			node.value = sub.value;
+			doDelete(node, sub.value);		
+		}
+		return true;	
+	}
+	
+	public Node find(Node node, int _value){
+		if(node == null)
+			return null;
+		if(node.value == _value)
+			return node;
+		if(_value < node.value)
+			return find(node.leftChild, _value);
+		else
+			return find(node.rightChild, _value);
+	}
+	
+	public Node getRightMostChild(Node node){
+		if(node.rightChild == null)
+			return node;
+		return getRightMostChild(node.rightChild);
+	}
+	
+	public Node getLeftMostChild(Node node){
+		if(node.leftChild == null)
+			return node;
+		return getLeftMostChild(node.leftChild);
+	}
+	
+	
+	
+	
+	
+	
+	public static void main(String[] args){
+		
+		BinarySearchTree bst = new BinarySearchTree(7);
+		bst.add(bst.root, 5);
+//		int[] vals = {4,2,1,5,6,9,13,11,10,12,17,19};
+//		for(int val: vals)
+//			bst.add(bst.root, val);
+//		
+//		bst.inOrderTraversal(bst.root);
+		
+			
+	}
+}

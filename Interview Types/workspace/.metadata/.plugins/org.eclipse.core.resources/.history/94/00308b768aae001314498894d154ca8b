@@ -1,0 +1,10 @@
+package lab03;
+
+
+public interface Locatable {
+
+    public abstract int getX();
+    public abstract int getY();
+    public abstract void setLocation(int x, int y);
+
+}

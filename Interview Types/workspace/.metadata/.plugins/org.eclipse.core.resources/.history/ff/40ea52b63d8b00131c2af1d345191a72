@@ -1,0 +1,21 @@
+package sortAlgos;
+
+public class bla {
+
+	private static int blaa()){
+		int x = 1;
+		b2(x);
+		return x;
+	}
+	
+	private static void b2(int a){
+		a = 10;
+	}
+	
+	
+	public static void main(String[] args){
+		int b = 5;
+		blaa(b);
+		System.out.println(b);
+	}
+}

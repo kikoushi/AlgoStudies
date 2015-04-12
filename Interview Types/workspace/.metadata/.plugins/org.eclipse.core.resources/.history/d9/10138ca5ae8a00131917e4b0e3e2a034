@@ -1,0 +1,12 @@
+'''
+Created on 31 Oca 2014
+
+@author: cm
+'''
+
+class Patient:
+            
+    def __init__(self, name, idn, priority):
+            self.name = name;
+            self.idn = idn;
+            self.priority = priority;

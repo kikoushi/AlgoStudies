@@ -1,0 +1,24 @@
+package lab03;
+
+public class Square extends Rectangle{
+	
+	private int side;
+	
+	public Square(int side){
+		super(side, side);
+		this.side = side;
+	}
+	
+	public String toString(){
+		String className = this.getClass().toString();
+		className = className.substring(className.lastIndexOf('.')+1);
+		return className + "-Side: " + this.side
+				+ "-Area: " + this.getArea();
+	}
+	
+//	@Override
+//	public double getArea() {
+//		return super.getArea();
+//	}
+	
+}

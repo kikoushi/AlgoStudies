@@ -1,0 +1,15 @@
+'''
+Created on 31 Oca 2014
+
+@author: cm
+'''
+
+import Patient
+
+class Main:
+        
+    lst = []
+    lst.append(Patient.Patient("c","a",7));
+    print(patient)
+    patient.setPriority(3)
+    print(patient.getpriority())

@@ -1,0 +1,33 @@
+package sortAlgos;
+
+public class MergeSort {
+
+	public static <T extends Comparable<T>> void sort(T[] arr){
+//		T[] aux = arr.clone();
+		Comparable[] aux = new Comparable[arr.length];
+		sort(arr, aux, 0, arr.length-1);
+	}
+	
+	public static <T extends Comparable<T>> void sort(T[] arr, T[] aux, int l, int h){		
+		if(l>=h) return;
+		int mid = l + (h-l)/2;
+		sort(arr, aux, l, mid);
+		sort(arr, aux, mid+1, h);
+		merge(arr, aux, l, mid, h);
+	}
+	
+	public static <T extends Comparable<T>> void merge(T[] arr, T[] aux, int l, int m, int h){
+		int i=l;
+		int j=m+1;		
+		for(int k=l; k<=h; k++){
+			if		(i>m)			 		  arr[k] = aux[j++];
+			else if	(j>h)				 	  arr[k] = aux[i++];
+			else if	(less(aux[i], aux[j]))	  arr[k] = aux[i++];
+			else							  arr[k] = aux[j++];
+		}
+	}
+	
+	public static <T extends Comparable<T>> boolean less(T t1, T t2){
+		return t1.compareTo(t2) < 0;
+	}
+}

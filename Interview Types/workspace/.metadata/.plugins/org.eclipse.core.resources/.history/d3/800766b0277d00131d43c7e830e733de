@@ -1,0 +1,27 @@
+package recursion;
+
+public class CombinationOfString {
+	
+	public static void comb(String word){
+		StringBuffer sb = new StringBuffer();
+		combine("",word,sb);
+	}
+	
+	public static void combine(String prefix, String word, StringBuffer sb){
+		if( !prefix.isEmpty() ){
+			System.out.println(prefix);
+			sb.append(prefix);
+		}
+
+		for(int i=0; i<word.length(); i++){
+			combine(prefix+word.charAt(i), word.substring(i+1), sb);
+		}
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		combine("","1234");
+
+	}
+
+}

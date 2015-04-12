@@ -1,0 +1,12 @@
+'''
+Created on 31 Oca 2014
+
+@author: cm
+'''
+
+import Patient
+
+class Main:
+        
+    patient = Patient.Patient();
+    print(patient)

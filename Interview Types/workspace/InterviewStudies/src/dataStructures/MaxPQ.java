@@ -1,0 +1,106 @@
+package dataStructures;
+
+import java.util.NoSuchElementException;
+
+import coursera_algo1_princeton.KnuthShuffle;
+
+public class MaxPQ<K extends Comparable<K>>{
+
+	private K[] pq;
+	private int N;
+	
+	public MaxPQ(){
+		this(2);
+	}
+	public MaxPQ(int size){
+		N = 0;
+		pq = (K[])new Comparable[size];
+	}	
+	
+	public void insert(K k){
+		if(k == null)		throw new IllegalArgumentException("...");			
+		if(isFull())		resize(pq.length*2);
+		
+		pq[++N] = k;
+		swim(N);
+	}
+	public K deleteMax(){
+		if(isEmpty()) 		throw new NoSuchElementException("Priority queue underflow");	
+				
+		K mx = pq[1];
+		exch(1, N);
+		pq[N--] = null;
+		sink(1);	
+			
+		if(isSparce()) 		resize(pq.length/2);
+		return mx;
+	}
+	public K max(){
+		if(isEmpty()) 		throw new NoSuchElementException("Priority queue underflow");
+		return pq[1];
+	}
+	public String toString(){
+		StringBuilder sb = new StringBuilder();
+		for(int i=1; i<=N; i++)
+			sb.append(pq[i]+" ");
+		return sb.toString();
+	}
+	
+	
+	/*******************
+	 *
+	 * Helper Functions
+	 * 
+	 */	
+	
+	private void sink(int k){
+		while(2*k <= N){
+			int g = 2*k;
+			if(g<N && less(2*k, 2*k+1)) g++;
+			if(!less(k, g)) break;
+			exch(k, g);
+			k = g;
+		}
+	}
+	private void swim(int k){	
+		while( k>1 && less(k/2, k) ){
+			exch(k/2, k);
+			k /= 2;
+		}
+	}	
+	private boolean less(int i, int j){
+		return (pq[i].compareTo(pq[j]) < 0);
+	}
+	private void exch(int i, int j){
+		K k = pq[i];
+		pq[i] = pq[j];
+		pq[j] = k; 
+	}
+	private void resize(int n){
+		K[] aux = (K[])new Comparable[n];
+		for(int i=1; i<=N; i++)
+			aux[i] = pq[i];
+		pq = aux;
+	}
+	private boolean isFull()	{		return N == pq.length-1;				}
+	private boolean isSparce()	{		return (N > 0 && N < pq.length/4);		}
+	private boolean isEmpty()	{	 	return N == 0;							}
+	
+	
+	public static void main(String[] args){
+		MaxPQ<Integer> maxPQ = new MaxPQ<Integer>();
+		
+		Integer[] arr = new Integer[15];
+		for(int i=0; i<arr.length; i++)
+			arr[i] = i;
+		KnuthShuffle.shuffle(arr);
+		
+		for(int i=0; i<arr.length; i++)
+			maxPQ.insert(arr[i]);
+				
+		System.out.println(maxPQ.deleteMax());
+		System.out.println(maxPQ.deleteMax());
+		System.out.println(maxPQ.deleteMax());
+		System.out.println(maxPQ.toString());
+	}
+}

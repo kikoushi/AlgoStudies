@@ -1,0 +1,9 @@
+package dataStructures;
+
+public class MyTree<K> {
+
+	private class TreeNode<K>{
+		
+	}
+	
+}

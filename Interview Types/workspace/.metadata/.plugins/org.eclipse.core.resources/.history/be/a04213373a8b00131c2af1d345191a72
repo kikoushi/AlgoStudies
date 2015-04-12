@@ -1,0 +1,14 @@
+package sortAlgos;
+
+public class SelectionSort {
+	
+	public static int[] sort(int[] arr){
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

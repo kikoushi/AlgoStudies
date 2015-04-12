@@ -1,0 +1,26 @@
+package dataStructures;
+
+public class TreeFun {
+
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Node<Integer> myNode = new Node<Integer>();
+		
+		myNode.setData(0);
+		myNode.setNext(new Node<Integer>(2));
+		
+		
+		System.out.println(myNode.getData());
+		System.out.println(myNode.getNext().getData());
+		
+		
+		MyQueue<Integer> myQ = new MyQueue<Integer>(32);
+		System.out.println(myQ.peek().getData());
+		
+	}
+
+}

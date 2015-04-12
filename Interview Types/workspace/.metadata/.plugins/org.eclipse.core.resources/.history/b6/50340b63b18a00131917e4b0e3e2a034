@@ -1,0 +1,14 @@
+'''
+Created on 31 Oca 2014
+
+@author: cm
+'''
+
+import Patient
+
+class Main:
+        
+    patient = Patient.Patient("c","a",7);
+    print(patient)
+    patient.setPriority(3)
+    print(patient.getpriority())

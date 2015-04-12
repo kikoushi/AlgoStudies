@@ -1,0 +1,31 @@
+package recursion;
+
+public class CombinationOfString {
+
+	public static StringBuffer comb(String word){
+		StringBuffer sb = new StringBuffer();
+		String s = combine("",word,sb);
+		return sbf;
+	}
+	
+	public static String combine(String prefix, String word, StringBuffer sb){
+		if( !prefix.isEmpty() ){
+			System.out.println(prefix);
+			sb.append(prefix);
+			sb.append("#");
+		}
+
+		for(int i=0; i<word.length(); i++){
+			combine(prefix+word.charAt(i), word.substring(i+1), sb);
+		}
+		return sb.toString();
+	}
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		StringBuffer sb = comb("caner");
+		System.out.println(sb.toString());
+
+	}
+
+}
